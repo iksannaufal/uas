@@ -2,22 +2,27 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var url = "https://kungfumas.000webhostapp.com/json.php";
+        var url = "json.php";
         $.getJSON(url, function(result) {
             console.log(result);
             $.each(result, function(i, field) {
                 var id = field.id;
-                var title = field.title;
-                var duration = field.duration;
-                var price = field.price;
-                $("#listview").append("<a class='item' href='form.html?id=" + id + "&title=" + title + "&duration=" + duration + "&price=" + price + "'><span class='item-note'>$" + price + "</span><h2>" + title + " </h2><p>" + duration + "</p></a>");
+                var nama = field.nama;
+                var nim = field.nim;
+                var foto = field.foto;
+                var alamat = field.alamat;
+                var fakultas = field.fakultas;
+
+                $("#listview").append("<a class='item' href='form.html?id=" + id + "&nama=" + nama + "&nim=" + nim + "&foto=" + foto + "&alamat=" + alamat + "&fakultas=" + fakultas + "'><h2>" + nama + " </h2><h2>" + nim + " </h2><h2>" + foto + " </h2><h2>" + alamat + "</h2><h2>" + fakultas + "</h2></a>");
             });
         });
     });
     </script>
+    
 </head>
 
 <body>
@@ -29,6 +34,10 @@
     <br/>
     <ul class="list" id="listview">
     </ul>
+
+    <a href="index.php" class="btn btn-default">Kembali ke admin</a>
 </body>
+
+
 
 </html>
